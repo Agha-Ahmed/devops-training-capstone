@@ -1,0 +1,9 @@
+./README.md:# devops-training-capstone
+./README.md:I am transitioning from a Software Automation Engineer background into DevOps.  
+./README.md:This repository will track my hands-on DevOps learning journey.
+./Week-1/Day-2/day2-linux-journey-notes.md:## Why Linux for DevOps?
+./Week-1/Day-2/day2-setup.md:macOS is based on BSD, which differs from the GNU/Linux utilities used on most servers. To ensure compatibility for this DevOps training, I installed GNU versions of standard command-line tools.
+./Week-1/Day-1/day1-devops-vs-my-role.md:# DevOps vs My Current Role
+./Week-1/Day-1/day1-devops-vs-my-role.md:## DevOps Role
+./Week-1/Day-1/day1-devops-vs-my-role.md:DevOps focuses on the full software lifecycle including:
+./Week-1/Day-1/day1-devops-vs-my-role.md:DevOps ensures the product is built, deployed, and operated efficiently and reliably.
