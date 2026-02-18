@@ -1,0 +1,8 @@
+Test 1: PASSED
+Test 2: PASSED
+Test 3: FAILED
+Test 4: FAILED
+Test 5: PASSED
+----------------------
+Passed: 3
+Failed: 2
