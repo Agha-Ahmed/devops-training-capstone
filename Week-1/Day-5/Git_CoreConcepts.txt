@@ -1,0 +1,32 @@
+Git Branches:
+- A separate line of development.
+- Instead of working directly on main, you create: feature/setup-app
+
+Why?
+1. Keeps main stable
+2. Isolates new work
+3. Allows review
+
+
+Pull Request (PR):
+A Pull Request is a request to merge your branch into main.
+Even if you work alone — you simulate real workflow.
+
+PR includes:
+- Description
+- Code review
+- CI test execution (later)
+- Approval
+- Merge
+
+Difference Between git commit and git push
+- git commit: Saves changes locally
+- git push: Sends commits to remote (GitHub)
+
+Preparing Application for CI
+
+To prepare an app for CI:
+- App must run locally
+- README must explain how to run
+- Tests must exist (or simulated)
+- Directory structure must be clean
