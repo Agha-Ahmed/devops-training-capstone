@@ -17,3 +17,23 @@ Pipeline Stages:
 4. Deploy: 
 - Send artifacts to staging/production.
 - Deploy to staging or production environment
+
+
+
+## Test Execution Environment
+### 1. Where will tests run?
+Tests will run on GitHub Actions runner using the `ubuntu-latest` operating system. 
+This ensures a clean, isolated Linux environment for every build.
+
+### 2. When will tests trigger?
+1. Pull Requests:
+- When you try to merge your new code into main, the tests run automatically.
+- To catch bugs before they are added to the official project.
+- if tests fail, the "Merge" button stays locked.
+2. Push to Main:
+- Confirms the main branch is stable and ready to be deployed to users. 
+- Once the code is merged, the tests run one last time on the combined code.
+### 3. Requirements for Test Environment
+- Python 3.10+
+- Virtual Environment (pip install -r requirements.txt)
+- Execution of `./scripts/run_tests.sh`
