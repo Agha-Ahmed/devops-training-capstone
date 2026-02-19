@@ -15,3 +15,7 @@ This is a minimal Flask web application added for DevOps training.
 3. Run the application:
 
    python app.py
+
+
+## Simulate the Test Execution   
+./scripts/run_tests.sh
