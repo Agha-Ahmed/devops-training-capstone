@@ -3,6 +3,9 @@
 # Hardening the script
 set -euo pipefail
 
+# Print environment (CI or local)
+echo "Running in environment: ${APP_ENV:-local}"
+
 # Ensure logs directory exists
 if [ ! -d "./logs" ]; then
   echo "Logs directory not found. Creating it..."
