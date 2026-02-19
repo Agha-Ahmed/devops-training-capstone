@@ -4,15 +4,17 @@ on:
   push:
     branches:
       - main
-      - feature/*
+      - 'feature/*'
+  pull_request:
+    branches:
+      - main
 
 jobs:
   test:
-    runs-on: ubuntu-latest       
-
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Make script executable
         run: chmod +x scripts/run_tests.sh
