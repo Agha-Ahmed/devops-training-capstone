@@ -21,16 +21,17 @@ echo "Running tests and logging to $LOG_FILE..."
 PASSED=0
 FAILED=0
 
-# Simulate 5 tests
+# Simulate 5 tests, with an option to force a failure for demonstration
+FORCE_FAIL=${FORCE_FAIL:-false}
 
 for i in {1..5}
 do
-  if [ $((RANDOM % 2)) -eq 0 ]; then
-    echo "Test $i: PASSED" | tee -a "$LOG_FILE"
-    PASSED=$((PASSED + 1))
-  else
+  if [ "$FORCE_FAIL" = "true" ] && [ "$i" -eq 3 ]; then
     echo "Test $i: FAILED" | tee -a "$LOG_FILE"
     FAILED=$((FAILED + 1))
+  else
+    echo "Test $i: PASSED" | tee -a "$LOG_FILE"
+    PASSED=$((PASSED + 1))
   fi
 done
 

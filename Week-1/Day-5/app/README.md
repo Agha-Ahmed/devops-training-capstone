@@ -18,4 +18,7 @@ This is a minimal Flask web application added for DevOps training.
 
 
 ## Simulate the Test Execution   
+## Normal run:
 ./scripts/run_tests.sh
+## Force failure:
+FORCE_FAIL=true ./scripts/run_tests.sh
