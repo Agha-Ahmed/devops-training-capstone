@@ -28,14 +28,17 @@ e9e50e44f49d: Pull complete
 Digest: sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf
 Status: Downloaded newer image for python:3.11-slim
 
-## 3. Inside container:
+## Step 3. Inside container:
+
 1. Check Python version:
 ### command `python --version`
 ### Output from terminal:
 Python 3.11.14
-2. Run any quick Python commands to test, e.g.:
+
+2. Run any quick Python commands to test:
 ### command: `python -c "print('Hello from Python container')"`
 ### Output from terminal:
 Hello from Python container
+
 3. Exit the container:
 exit
