@@ -34,3 +34,12 @@ Our repository uses GitHub Actions for CI.
 - Runs tests using `./scripts/run_tests.sh`.
 - Uploads test logs as artifacts.
 
+
+
+## Week 3 Preview – Containerization
+In Week 3, we will start integrating containerization into our CI/CD pipeline.
+
+### Goals
+- Use Docker to create consistent build and test environments.
+- Ensure that all dependencies and environments are reproducible across different machines.
+- Simplify deployment by packaging applications into containers.
