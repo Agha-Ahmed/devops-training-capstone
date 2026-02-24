@@ -5,13 +5,13 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # Copy dependency file first (for caching)
-Copy requirements.txt .
+COPY requirements.txt .
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
-Copy app.py .
+COPY app.py .
 
 # Inform Docker that the app listens on port 5000
 EXPOSE 5000
