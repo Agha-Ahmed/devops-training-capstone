@@ -100,3 +100,11 @@ db-1  | 2026-02-25 11:32:54.108 UTC [57] LOG:  database system was shut down at 
 db-1  | 2026-02-25 11:32:54.110 UTC [1] LOG:  database system is ready to accept connections
 db-1  | 2026-02-25 11:37:54.111 UTC [55] LOG:  checkpoint starting: time
 db-1  | 2026-02-25 11:37:58.373 UTC [55] LOG:  checkpoint complete: wrote 44 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.250 s, sync=0.004 s, total=4.262 s; sync files=12, longest=0.003 s, average=0.001 s; distance=252 kB, estimate=252 kB
+
+## Persistent Storage Verification
+Command:
+- docker volume ls
+
+Output:
+devops-training-capstone_postgres_data
+![alt text](image-4.png)

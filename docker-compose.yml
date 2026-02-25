@@ -1,12 +1,10 @@
-version: '3.8'
-
 services:              # services starts the list of containers
   web:                 # is the Service Name we chose for our Flask app
     build:              # build specifies how to build the Docker image for this service
       context: ./Week-3/Day-2/app
       dockerfile: Dockerfile    # path to the Dockerfile for the web service
     ports:
-      - "5001:5000"    # map port 5000 of the container to port 5000 on the host
+      - "5001:5000"    # map port 5000 inside container to port 5001 on the host
     depends_on:
       - db             # specify that the web service depends on the db service OR The web container should wait for the db container to start.
     environment:
