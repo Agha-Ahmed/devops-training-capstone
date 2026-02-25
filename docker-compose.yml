@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:              # services starts the list of containers
+  web:                 # is the Service Name we chose for our Flask app
+    build: .           # build the image from the Dockerfile in the current directory
+    ports:
+      - "5000:5000"    # map port 5000 of the container to port 5000 on the host
+    depends_on:
+      - db             # specify that the web service depends on the db service OR The web container should wait for the db container to start.
+    environment:
+      - DATABASE_URL=postgres://user:pass@db:5432/appdb  # set environment variable for the database connection string, using the service name 'db' as the hostname
+
+  # This is your Database
+  db:                                 # db is the service name for the PostgreSQL container
+    image: postgres:15-alpine         # use the official PostgreSQL image, version 15 with Alpine Linux for a smaller image size
+    environment:  
+      - POSTGRES_USER=user            # set the default PostgreSQL user to 'user'
+      - POSTGRES_PASSWORD=pass        # set the default PostgreSQL password to 'pass'
+      - POSTGRES_DB=appdb             # set the default PostgreSQL database to 'appdb'
+    volumes:                          # Link a named volume (postgres_data) to the specific folder where Postgres stores its data files.
+      - postgres_data:/var/lib/postgresql/data
+
+# Define the persistent storage
+volumes:                              # It tells Docker Compose to manage this "Virtual Hard Drive" separately from the lifecycle of the containers. It keeps the data safe even when the containers are "Down."
+  postgres_data:
