@@ -1,0 +1,16 @@
+name: Docker Build (PR)
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  build-day5-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Build Docker image for Day 5
+        run: |
+          drun: docker build -t week3-day5-web:ci ./week-3/Day-5/web
+          
