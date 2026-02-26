@@ -1,0 +1,89 @@
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.04kB done
+#1 DONE 0.0s
+
+#2 [web internal] load build definition from Dockerfile
+#2 transferring dockerfile: 202B done
+#2 DONE 0.0s
+
+#3 [tests internal] load build definition from Dockerfile
+#3 transferring dockerfile: 256B done
+#3 DONE 0.0s
+
+#4 [web internal] load metadata for docker.io/library/python:3.11-slim
+#4 DONE 0.0s
+
+#5 [tests internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [web internal] load .dockerignore
+#6 transferring context: 2B done
+#6 DONE 0.0s
+
+#7 [tests internal] load build context
+#7 transferring context: 74B done
+#7 DONE 0.0s
+
+#8 [web internal] load build context
+#8 transferring context: 63B done
+#8 DONE 0.0s
+
+#9 [tests 1/5] FROM docker.io/library/python:3.11-slim@sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf
+#9 resolve docker.io/library/python:3.11-slim@sha256:0b23cfb7425d065008b778022a17b1551c82f8b4866ee5a7a200084b7e2eafbf done
+#9 DONE 0.0s
+
+#10 [web 2/5] WORKDIR /app
+#10 CACHED
+
+#11 [web 4/5] RUN pip install --no-cache-dir -r requirements.txt
+#11 CACHED
+
+#12 [web 3/5] COPY requirements.txt .
+#12 CACHED
+
+#13 [tests 3/5] COPY requirements-tests.txt .
+#13 CACHED
+
+#14 [tests 2/5] WORKDIR /tests
+#14 CACHED
+
+#15 [tests 4/5] RUN pip install --no-cache-dir -r requirements-tests.txt
+#15 CACHED
+
+#16 [tests 5/5] COPY test_app.py .
+#16 CACHED
+
+#17 [web 5/5] COPY app.py .
+#17 CACHED
+
+#18 [tests] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:16238fbce462bf8ad2bcf325e5edf3fe1f22872156d375cb7f41d27e556dce06 done
+#18 exporting config sha256:c50ac39abf6d2087c91334d867a1883cca23a466c584b983877518b0dd3fa379 done
+#18 exporting attestation manifest sha256:783498a26bcebfc88b8ed6e7acdf0b1c6c12fba9911e089f5857027e319be3b0 0.0s done
+#18 exporting manifest list sha256:a561f28797c04a03bc9dc9c8d7a291a980821430b442cb4e74066a974057d9ba
+#18 exporting manifest list sha256:a561f28797c04a03bc9dc9c8d7a291a980821430b442cb4e74066a974057d9ba done
+#18 naming to docker.io/library/day-4-tests:latest done
+#18 unpacking to docker.io/library/day-4-tests:latest done
+#18 DONE 0.1s
+
+#19 [web] exporting to image
+#19 exporting layers done
+#19 exporting manifest sha256:ea3bc7915be168d703883aa97de19ffa6bdb2637297314ade6f2996589a4bfb2 done
+#19 exporting config sha256:62c619082671ca38045763d70a5107e2ef4d8d651e85ad8e07c6f57e424ca2c7 done
+#19 exporting attestation manifest sha256:5aa70237ad9667076c5a44a742eff997cecbbab595e799d28616df5c2b6708ff 0.0s done
+#19 exporting manifest list sha256:a0c71424f0de513ae02c38f1435878900d6d282fd8b1c0db27cdb68c40d8e316 done
+#19 naming to docker.io/library/day-4-web:latest done
+#19 unpacking to docker.io/library/day-4-web:latest done
+#19 DONE 0.1s
+
+#20 [tests] resolving provenance for metadata file
+#20 DONE 0.0s
+
+#21 [web] resolving provenance for metadata file
+#21 DONE 0.0s
+Attaching to tests
+tests  | ..                                                                       [100%]
+tests  | 2 passed in 0.04s
+[Ktests exited with code 0
