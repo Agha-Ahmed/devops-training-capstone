@@ -8,5 +8,4 @@ def test_home():
 def test_health():
     r = requests.get("http://web:5000/health")
     assert r.status_code == 200
-    # Flask returns JSON
     assert r.json()["status"] == "healthy"
