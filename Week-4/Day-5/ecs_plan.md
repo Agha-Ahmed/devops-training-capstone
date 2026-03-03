@@ -20,3 +20,14 @@ Deploy my Dockerized app to AWS using ECS Fargate with CI/CD later.
 2. On main merge:
    - build & push to ECR
    - deploy/update ECS service (new task definition revision)
+
+
+## Week 5 Day 1 Task 4 – Update CI plan to include ECR push step next days.
+## Future CI Integration with ECR
+
+CI Pipeline will:
+1. Build Docker image
+2. Tag image with commit SHA
+3. Authenticate to ECR
+4. Push image to ECR
+5. Deploy updated task definition to ECS
