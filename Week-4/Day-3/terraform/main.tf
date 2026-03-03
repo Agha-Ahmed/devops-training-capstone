@@ -13,30 +13,6 @@ provider "aws" {
   profile = var.aws_profile
 }
 
-# Use the default VPC (simplest for Day 3)
-data "aws_vpc" "default" {
-  default = true
-}
-
-# Pick a subnet from the default VPC (default VPC subnets are typically public)
-data "aws_subnets" "default_vpc_subnets" {
-  filter {
-    name   = "vpc-id"
-    values = [data.aws_vpc.default.id]
-  }
-}
-
-# Find a recent Amazon Linux AMI (easy + standard)
-data "aws_ami" "al2023" {
-  most_recent = true
-  owners      = ["amazon"]
-
-  filter {
-    name   = "name"
-    values = ["al2023-ami-*-x86_64"]
-  }
-}
-
 # Security Group (SSH from your IP, HTTP from anywhere - training)
 resource "aws_security_group" "web_sg" {
   name        = "week4-${var.env}-web-sg"
