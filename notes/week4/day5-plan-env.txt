@@ -1,0 +1,67 @@
+[0m[1mdata.aws_ami.al2023: Reading...[0m[0m
+[0m[1mdata.aws_vpc.default: Reading...[0m[0m
+[0m[1mdata.aws_ami.al2023: Read complete after 2s [id=ami-0aae19d30bab785d3][0m
+[0m[1mdata.aws_vpc.default: Read complete after 3s [id=vpc-58e15225][0m
+[0m[1mdata.aws_subnets.default_vpc_subnets: Reading...[0m[0m
+[0m[1maws_security_group.web_sg: Refreshing state... [id=sg-0b2e5d0ef39e1e040][0m
+[0m[1mdata.aws_subnets.default_vpc_subnets: Read complete after 1s [id=us-east-1][0m
+[0m[1maws_instance.web: Refreshing state... [id=i-08097f1df45c79e79][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [33m~[0m update in-place[0m
+[31m-[0m/[32m+[0m destroy and then create replacement[0m
+
+Terraform will perform the following actions:
+
+[1m  # aws_instance.web[0m will be updated in-place
+[0m  [33m~[0m[0m resource "aws_instance" "web" {
+        id                                   = "i-08097f1df45c79e79"
+      [33m~[0m[0m tags                                 = {
+          [32m+[0m[0m "Env"     = "dev"
+          [33m~[0m[0m "Name"    = "week4-day3-ec2" [33m->[0m[0m "week4-dev-ec2"
+            "Project" = "devops-training"
+        }
+      [33m~[0m[0m tags_all                             = {
+          [32m+[0m[0m "Env"     = "dev"
+          [33m~[0m[0m "Name"    = "week4-day3-ec2" [33m->[0m[0m "week4-dev-ec2"
+            [90m# (1 unchanged element hidden)[0m[0m
+        }
+      [33m~[0m[0m vpc_security_group_ids               = [
+          [31m-[0m[0m "sg-0b2e5d0ef39e1e040",
+        ] -> (known after apply)
+        [90m# (37 unchanged attributes hidden)[0m[0m
+
+        [90m# (8 unchanged blocks hidden)[0m[0m
+    }
+
+[1m  # aws_security_group.web_sg[0m must be [1m[31mreplaced[0m
+[0m[31m-[0m/[32m+[0m[0m resource "aws_security_group" "web_sg" {
+      [33m~[0m[0m arn                    = "arn:aws:ec2:us-east-1:604977880911:security-group/sg-0b2e5d0ef39e1e040" -> (known after apply)
+      [33m~[0m[0m id                     = "sg-0b2e5d0ef39e1e040" -> (known after apply)
+      [33m~[0m[0m name                   = "week4-day3-web-sg" [33m->[0m[0m "week4-dev-web-sg" [31m# forces replacement[0m[0m
+      [32m+[0m[0m name_prefix            = (known after apply)
+      [33m~[0m[0m owner_id               = "604977880911" -> (known after apply)
+      [33m~[0m[0m tags                   = {
+          [33m~[0m[0m "Day"     = "day3" [33m->[0m[0m "day5"
+          [32m+[0m[0m "Env"     = "dev"
+            "Project" = "devops-training"
+            "Week"    = "week4"
+        }
+      [33m~[0m[0m tags_all               = {
+          [33m~[0m[0m "Day"     = "day3" [33m->[0m[0m "day5"
+          [32m+[0m[0m "Env"     = "dev"
+            [90m# (2 unchanged elements hidden)[0m[0m
+        }
+        [90m# (5 unchanged attributes hidden)[0m[0m
+    }
+
+[1mPlan:[0m [0m1 to add, 1 to change, 1 to destroy.
+
+Changes to Outputs:
+  [33m~[0m[0m security_group_id  = "sg-0b2e5d0ef39e1e040" -> (known after apply)
+[90m
+─────────────────────────────────────────────────────────────────────────────[0m
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.

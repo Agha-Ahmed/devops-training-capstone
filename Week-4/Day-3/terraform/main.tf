@@ -39,7 +39,7 @@ data "aws_ami" "al2023" {
 
 # Security Group (SSH from your IP, HTTP from anywhere - training)
 resource "aws_security_group" "web_sg" {
-  name        = "week4-day3-web-sg"
+  name        = "week4-${var.env}-web-sg"
   description = "Allow SSH from my IP and HTTP from anywhere (training)"
   vpc_id      = data.aws_vpc.default.id
 
@@ -70,7 +70,8 @@ resource "aws_security_group" "web_sg" {
   tags = {
     Project = "devops-training"
     Week    = "week4"
-    Day     = "day3"
+    Day     = "day5"
+    Env     = var.env
   }
 }
 
@@ -85,7 +86,8 @@ resource "aws_instance" "web" {
   key_name = var.key_name == "" ? null : var.key_name
 
   tags = {
-    Name    = "week4-day3-ec2"
+    Name    = "week4-${var.env}-ec2"
     Project = "devops-training"
+    Env     = var.env
   }
 }

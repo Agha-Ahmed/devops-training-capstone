@@ -26,3 +26,9 @@ variable "key_name" {
   description = "Optional EC2 key pair name (leave empty if not using SSH keys)"
   default     = ""
 }
+
+variable "env" {
+  description = "Environment name (dev/staging/prod)"
+  type        = string
+  default     = "dev"
+}
