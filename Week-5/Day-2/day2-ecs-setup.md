@@ -51,3 +51,14 @@ Content-Length: 32
 Connection: close
 
 Hello from Dockerized Flask App!
+
+
+## Task 3 — CloudWatch Logs
+Container logs are successfully streamed to CloudWatch.
+
+Step1: ECS → Clusters → devops-training-cluster
+Step2: Services → devops-training-task-service-cu2evwvx
+Step3: Then click: Tasks → Click the running task
+Step4: Scroll down to → Containers → click View in CloudWatch
+AWS will open CloudWatch Logs: CloudWatch > Log management >/ecs/devops-training-task
+![alt text](image-2.png)
