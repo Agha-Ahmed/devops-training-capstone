@@ -1,4 +1,4 @@
-name: Build and Push to ECR (Week 5 Day 3)
+name: Build and Push to ECR (Week-5 Day-3)
 
 on:
   push:
