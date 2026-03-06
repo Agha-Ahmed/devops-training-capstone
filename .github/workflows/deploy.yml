@@ -1,4 +1,4 @@
-name: Build and Push to ECR (Week-5 Day-3)
+name: CI-CD
 
 on:
   push:
@@ -9,9 +9,13 @@ env:
   AWS_REGION: us-east-1
   ECR_REPOSITORY: devops-training-app
   ECR_REGISTRY: 604977880911.dkr.ecr.us-east-1.amazonaws.com
+  ECS_CLUSTER: devops-training-cluster
+  ECS_SERVICE: devops-training-service
+  ECS_TASK_DEFINITION: devops-training-task
+  CONTAINER_NAME: devops-training-container
 
 jobs:
-  build-and-push:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -34,9 +38,42 @@ jobs:
 
       - name: Tag Docker image
         run: |
-          docker tag $ECR_REPOSITORY:latest \
-            $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          docker tag $ECR_REPOSITORY:latest $ECR_REGISTRY/$ECR_REPOSITORY:latest
 
       - name: Push Docker image to ECR
         run: |
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+
+      - name: Download current task definition
+        run: |
+          aws ecs describe-task-definition \
+            --task-definition $ECS_TASK_DEFINITION \
+            --query taskDefinition > task-definition.json
+
+      - name: Clean task definition JSON
+        run: |
+          jq 'del(
+            .taskDefinitionArn,
+            .revision,
+            .status,
+            .requiresAttributes,
+            .compatibilities,
+            .registeredAt,
+            .registeredBy
+          )' task-definition.json > task-definition-clean.json
+
+      - name: Render new ECS task definition
+        id: task-def
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: task-definition-clean.json
+          container-name: ${{ env.CONTAINER_NAME }}
+          image: ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:latest
+
+      - name: Deploy ECS task definition
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v2
+        with:
+          task-definition: ${{ steps.task-def.outputs.task-definition }}
+          service: ${{ env.ECS_SERVICE }}
+          cluster: ${{ env.ECS_CLUSTER }}
+          wait-for-service-stability: true
