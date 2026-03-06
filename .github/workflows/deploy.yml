@@ -30,7 +30,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          ddocker build -t $ECR_REPOSITORY -f Week-3/Day-2/app/Dockerfile Week-3/Day-2/app/
+          docker build -t $ECR_REPOSITORY -f Week-3/Day-2/app/Dockerfile Week-3/Day-2/app/
 
       - name: Tag Docker image
         run: |
