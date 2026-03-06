@@ -31,15 +31,24 @@ CloudWatch logs enabled
 
 ## Verification
 - Task status: RUNNING
-- Public IP: 3.84.217.40
-- Working URL:
-  - http://3.84.217.40:5000
+
+## Service Verification
+- Public URL:
+http://34.235.162.81:5000
+- Verification commands:
+curl http://34.235.162.81:5000
+# Hello from Dockerized Flask App!
+curl http://34.235.162.81:5000/health
+# {"status":"healthy"}
+
+Result:
+ECS Fargate service is running successfully and responding over the public endpoint.
 
 ![alt text](image.png)  
 ![alt text](image-1.png)
 
 ### Service Verification (curl)
-Command used: `curl -i http://3.84.217.40:5000`
+Command used: `curl -i http://34.235.162.81:5000`
 
 Output:
 

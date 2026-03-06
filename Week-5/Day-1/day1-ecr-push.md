@@ -37,10 +37,16 @@ docker tag week3-day5-web:multi \
 - Get your repo commit SHA: `git rev-parse --short HEAD`
 docker tag week3-day5-web:multi \
 <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/devops-training-app:66b9b5a
+example:
+docker tag week3-day5-web:multi \
+604977880911.dkr.ecr.us-east-1.amazonaws.com/devops-training-app:66b9b5a
 
 ## Pushed to ECR:
 docker push <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/devops-training-app:latest
 docker push <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/devops-training-app:<commit-sha>
+example:
+docker push 604977880911.dkr.ecr.us-east-1.amazonaws.com/devops-training-app:latest
+docker push 604977880911.dkr.ecr.us-east-1.amazonaws.com/devops-training-app:66b9b5a
 
 ## Result
 ### Verified both tags in AWS Console under:
