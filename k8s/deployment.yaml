@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-training-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops-training-app
+  template:
+    metadata:
+      labels:
+        app: devops-training-app
+    spec:
+      containers:
+        - name: devops-training-container
+          image: 604977880911.dkr.ecr.us-east-1.amazonaws.com/devops-training-app:latest
+          ports:
+            - containerPort: 5000
