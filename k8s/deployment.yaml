@@ -14,6 +14,7 @@ spec:
     spec:
       containers:
         - name: devops-training-container
-          image: 604977880911.dkr.ecr.us-east-1.amazonaws.com/devops-training-app:latest
+          image: devops-training-app:latest
+          imagePullPolicy: Never
           ports:
             - containerPort: 5000
