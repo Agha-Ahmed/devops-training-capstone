@@ -2,7 +2,7 @@ from flask import Flask
 app = Flask(__name__)
 @app.route("/")
 def home():
-    return "Hello from Dockerized Flask App!"
+    raise Exception("Deployment test failure")
 
 @app.route("/health")
 def health():
