@@ -2,7 +2,7 @@ from flask import Flask
 app = Flask(__name__)
 @app.route("/")
 def home():
-    return "Hello from Dockerized Flask App v2!"
+    return "Hello from DevOps Capstone!"
 
 @app.route("/health")
 def health():
